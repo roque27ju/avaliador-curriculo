@@ -1,15 +1,19 @@
-import streamlit as st
+from flask import Flask, render_template, request
 
-st.title("Avaliador Estratégico de Currículo")
+app = Flask(__name__)
 
-st.write("App em construção 🚀")
+@app.route("/")
+def home():
+    return render_template("index.html")
 
-nome = st.text_input("Seu nome")
-email = st.text_input("Seu email")
-vaga = st.text_area("Descrição da vaga")
+@app.route("/avaliar", methods=["POST"])
+def avaliar():
+    texto = request.form["curriculo"]
+    
+    # Aqui depois vamos colocar a IA
+    resultado = f"O currículo enviado tem {len(texto.split())} palavras."
+    
+    return render_template("index.html", resultado=resultado)
 
-if st.button("Gerar análise"):
-    st.success("Análise gerada com sucesso!")
-    st.write("Nome:", nome)
-    st.write("Email:", email)
-    st.write("Vaga:", vaga)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000)
