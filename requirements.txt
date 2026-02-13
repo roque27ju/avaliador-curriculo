@@ -1,0 +1,9 @@
+streamlit
+google-generativeai
+gspread
+oauth2client
+Pillow
+reportlab
+requests
+beautifulsoup4
+sib-api-v3-sdk
