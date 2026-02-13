@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avaliador de Currículo</title>
+</head>
+<body>
+    <h1>Avaliador de Currículo</h1>
+
+    <form action="/avaliar" method="post">
+        <textarea name="curriculo" rows="10" cols="50" placeholder="Cole seu currículo aqui"></textarea><br><br>
+        <button type="submit">Avaliar</button>
+    </form>
+
+    {% if resultado %}
+        <h2>Resultado:</h2>
+        <p>{{ resultado }}</p>
+    {% endif %}
+
+</body>
+</html>
